@@ -34,6 +34,21 @@ public class Droplet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        var bEnmy = collision.collider.GetComponent<basicEnemy>();
+        var jEnmy = collision.collider.GetComponent<jumpEnemy>();
+        var tEnmy = collision.collider.GetComponent<tankEnemy>();
+        if (bEnmy != null)
+        {
+            bEnmy.health -= GameStatistics.rangeDamage;
+        }
+        if (jEnmy != null)
+        {
+            jEnmy.health -= GameStatistics.rangeDamage;
+        }
+        if (tEnmy != null)
+        {
+            tEnmy.health -= GameStatistics.rangeDamage;
+        }
         Destroy(gameObject);
     }
 }
