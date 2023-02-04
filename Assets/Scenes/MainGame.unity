@@ -2304,7 +2304,7 @@ GameObject:
   - component: {fileID: 678085344}
   - component: {fileID: 678085346}
   - component: {fileID: 678085345}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: toothbrush left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2492,7 +2492,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &766462029
 MonoBehaviour:
@@ -10964,7 +10964,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1872116637
 GameObject:
@@ -11023,7 +11023,7 @@ GameObject:
   - component: {fileID: 1901774602}
   - component: {fileID: 1901774604}
   - component: {fileID: 1901774603}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: toothbrush
   m_TagString: Untagged
   m_Icon: {fileID: 0}

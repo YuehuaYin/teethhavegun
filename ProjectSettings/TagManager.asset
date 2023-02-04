@@ -16,12 +16,8 @@ TagManager:
   - Projectile
   - Enemy
   - Triggers
-<<<<<<< HEAD
-  - Toothbrush
-=======
   - Spawner
->>>>>>> 0248a5ac969df3b4076fa7c7c49a1e11b95696f3
-  - 
+  - Toothbrush
   - 
   - 
   - 
