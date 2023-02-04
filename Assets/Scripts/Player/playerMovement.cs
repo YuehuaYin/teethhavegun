@@ -22,6 +22,7 @@ public class playerMovement : MonoBehaviour
 
     private Animator animator;
 
+    bool atkRdy = true;
 
     [SerializeField] GameObject ToothbrushR;
     [SerializeField] GameObject ToothBrushL;
@@ -50,13 +51,19 @@ public class playerMovement : MonoBehaviour
         if (moveD.x < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
-            currentBrush = ToothBrushL;
+            if (atkRdy)
+            {
+                currentBrush = ToothBrushL;
+            }
             animator.SetBool("moving", true);
         }
         else if (moveD.x > 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
-            currentBrush = ToothbrushR;
+            if (atkRdy)
+            {
+                currentBrush = ToothbrushR;
+            }
             animator.SetBool("moving", true);
         }
         else
@@ -109,15 +116,21 @@ public class playerMovement : MonoBehaviour
         }
     }
     public void OnMelee(InputAction.CallbackContext context)
-    {    
-        StartCoroutine(Attack());
+    {
+        if (atkRdy)
+        {
+            StartCoroutine(Attack());
+        }
     }
     private IEnumerator Attack()
     {
+        atkRdy = false;
         currentBrush.GetComponent<SpriteRenderer>().enabled = true;
         currentBrush.GetComponent<BoxCollider2D>().enabled = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         currentBrush.GetComponent<SpriteRenderer>().enabled = false;
         currentBrush.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(0.2f);
+        atkRdy = true;
     }
 }
