@@ -9,7 +9,7 @@ public class LeShop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        updateItems();
     }
 
     // Update is called once per frame
@@ -20,51 +20,82 @@ public class LeShop : MonoBehaviour
 
     public void buyItem(int n)
     {
+        bool afford = true;
         switch (n)
         {
             case 1:
                 if (GameStatistics.MONEY > GameStatistics.item1BaseCost * Mathf.Pow(2f, GameStatistics.item1Level))
                 {
                     GameStatistics.MONEY -= Mathf.RoundToInt(GameStatistics.item1BaseCost * Mathf.Pow(2f, GameStatistics.item1Level));
-                    //GIVE ITEM EFFECT
+                    GameStatistics.damage += 30;
+                    GameStatistics.item1Level += 1;
+                }
+                else
+                {
+                    afford = false;
                 }
                 break;
             case 2:
                 if (GameStatistics.MONEY > GameStatistics.item2BaseCost * Mathf.Pow(2f, GameStatistics.item2Level))
                 {
                     GameStatistics.MONEY -= Mathf.RoundToInt(GameStatistics.item2BaseCost * Mathf.Pow(2f, GameStatistics.item2Level));
-                    //GIVE ITEM EFFECT
+                    GameStatistics.rangeDamage += 20;
+                    GameStatistics.item2Level += 1;
+                }
+                else
+                {
+                    afford = false;
                 }
                 break;
             case 3:
                 if (GameStatistics.MONEY > GameStatistics.item3BaseCost * Mathf.Pow(2f, GameStatistics.item3Level))
                 {
                     GameStatistics.MONEY -= Mathf.RoundToInt(GameStatistics.item3BaseCost * Mathf.Pow(2f, GameStatistics.item3Level));
-                    //GIVE ITEM EFFECT
+                    GameStatistics.maxHealth += 1;
+                    GameStatistics.item3Level += 1;
+                }
+                else
+                {
+                    afford = false;
                 }
                 break;
             case 4:
                 if (GameStatistics.MONEY > GameStatistics.item4BaseCost * Mathf.Pow(2f, GameStatistics.item4Level))
                 {
                     GameStatistics.MONEY -= Mathf.RoundToInt(GameStatistics.item4BaseCost * Mathf.Pow(2f, GameStatistics.item4Level));
-                    //GIVE ITEM EFFECT
+                    GameStatistics.speed += 1.5f;
+                    GameStatistics.item4Level += 1;
+                }
+                else
+                {
+                    afford = false;
                 }
                 break;
             case 5:
                 if (GameStatistics.MONEY > GameStatistics.item5BaseCost * Mathf.Pow(2f, GameStatistics.item5Level))
                 {
                     GameStatistics.MONEY -= Mathf.RoundToInt(GameStatistics.item5BaseCost * Mathf.Pow(2f, GameStatistics.item5Level));
-                    //GIVE ITEM EFFECT
+                    GameStatistics.skin += 1;
+                    GameStatistics.item5Level += 1;
                 }
-                break;
-            case 6:
-                if (GameStatistics.MONEY > GameStatistics.item6BaseCost * Mathf.Pow(2f, GameStatistics.item6Level))
+                else
                 {
-                    GameStatistics.MONEY -= Mathf.RoundToInt(GameStatistics.item6BaseCost * Mathf.Pow(2f, GameStatistics.item6Level));
-                    //GIVE ITEM EFFECT
+                    afford = false;
                 }
                 break;
-
         }
+        if (afford)
+        {
+            dentistText.text = "Thank you for your purchase!";
+        }
+        else
+        {
+            dentistText.text = "You can't afford that";
+        }
+        updateItems();
+    }
+    void updateItems()
+    {
+
     }
 }
