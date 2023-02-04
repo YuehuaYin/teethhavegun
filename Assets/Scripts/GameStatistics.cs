@@ -4,10 +4,11 @@ using UnityEngine;
 
 public static class GameStatistics
 {
-    public static int damage;
-    public static int rangeDamage;
-    public static int maxHealth;
-
+    public static int damage = 50;
+    public static int rangeDamage = 35;
+    public static int maxHealth = 3;
+    public static float speed = 4f;
+    public static int skin = 1;
 
     public static int maxScore;
     public static int runScore;
@@ -17,17 +18,17 @@ public static class GameStatistics
 
     public static int MONEY;
 
-    public static int item1Level;
-    public static int item2Level;
-    public static int item3Level;
-    public static int item4Level;
-    public static int item5Level;
-    public static int item6Level;
+    public static int item1Level = 1;
+    public static int item2Level = 1;
+    public static int item3Level = 1;
+    public static int item4Level = 1;
+    public static int item5Level = 1;
 
-    public static int item1BaseCost;
-    public static int item2BaseCost;
-    public static int item3BaseCost;
-    public static int item4BaseCost;
-    public static int item5BaseCost;
-    public static int item6BaseCost;
+    public static int item1BaseCost = 500;
+    public static int item2BaseCost = 500;
+    public static int item3BaseCost = 500;
+    public static int item4BaseCost = 500;
+    public static int item5BaseCost = 10000;
+    public static int item5Cost2 = 250000;
+    public static int item5cost3 = 5000000;
 }
