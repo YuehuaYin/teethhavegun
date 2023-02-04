@@ -88,4 +88,13 @@ public class playerMovement : MonoBehaviour
     {
         yield return wait;
     }
+
+    //Check for collisions with enemies
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Debug.Log("Touched an enemy");
+        }
+    }
 }
