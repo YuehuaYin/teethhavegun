@@ -23,10 +23,15 @@ public class playerMovement : MonoBehaviour
     private Animator animator;
 
     bool atkRdy = true;
+    bool facingR = true;
 
     [SerializeField] GameObject ToothbrushR;
     [SerializeField] GameObject ToothBrushL;
+    [SerializeField] GameObject Gun1;
+    [SerializeField] GameObject Gun2;
+    [SerializeField] GameObject DropPrefab;
     GameObject currentBrush;
+    GameObject currentGun;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +44,7 @@ public class playerMovement : MonoBehaviour
         ToothBrushL.GetComponent<SpriteRenderer>().enabled = false;
         ToothBrushL.GetComponent<BoxCollider2D>().enabled = false;
         currentBrush = ToothbrushR;
+        currentGun = Gun2;
     }
 
     // Update is called once per frame
@@ -54,6 +60,8 @@ public class playerMovement : MonoBehaviour
             if (atkRdy)
             {
                 currentBrush = ToothBrushL;
+                currentGun = Gun2;
+                facingR = false;
             }
             animator.SetBool("moving", true);
         }
@@ -63,6 +71,8 @@ public class playerMovement : MonoBehaviour
             if (atkRdy)
             {
                 currentBrush = ToothbrushR;
+                currentGun = Gun1;
+                facingR = true;
             }
             animator.SetBool("moving", true);
         }
@@ -131,6 +141,24 @@ public class playerMovement : MonoBehaviour
         currentBrush.GetComponent<SpriteRenderer>().enabled = false;
         currentBrush.GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(0.2f);
+        atkRdy = true;
+    }
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (atkRdy)
+        {
+            StartCoroutine(ShowGun());
+            GameObject droplet = Instantiate(DropPrefab, gameObject.transform);
+            droplet.GetComponent<Droplet>().facingR = facingR;
+            droplet.SetActive(true);
+        }
+    }
+    private IEnumerator ShowGun()
+    {
+        currentGun.GetComponent<SpriteRenderer>().enabled = true;
+        atkRdy = false;
+        yield return new WaitForSeconds(0.3f);
+        currentGun.GetComponent<SpriteRenderer>().enabled = false;
         atkRdy = true;
     }
 }
