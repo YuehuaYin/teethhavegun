@@ -20,6 +20,11 @@ public class tankEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0)
+        {
+            Debug.Log("destroyed");
+            Destroy(gameObject);
+        }
         rb.velocity = new Vector2(speed * direction, rb.velocity.y);
     }
 
@@ -35,8 +40,8 @@ public class tankEnemy : MonoBehaviour
         }
         else if (col.gameObject.layer == LayerMask.NameToLayer("Toothbrush"))
         {
-            Debug.Log("destroyed");
-            Destroy(gameObject);
+            Debug.Log("melee attack on enemy");
+            health -= GameStatistics.damage; 
         }
     }
 }

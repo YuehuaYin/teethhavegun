@@ -7,7 +7,7 @@ public static class GameStatistics
     public static int damage = 50;
     public static int rangeDamage = 35;
     public static int maxHealth = 3;
-    public static float speed = 4f;
+    public static float speed = 5f;
     public static int skin = 1;
 
     public static int maxScore;

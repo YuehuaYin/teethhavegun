@@ -22,6 +22,10 @@ public class jumpEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0) {
+            Debug.Log("destroyed");
+            Destroy(gameObject);
+        }
         if (colliding == true) {
             rb.velocity = newDir(Mathf.RoundToInt(Random.Range(0, 8)));
         }
@@ -76,8 +80,8 @@ public class jumpEnemy : MonoBehaviour
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Toothbrush"))
         {
-            Debug.Log("destroyed");
-            Destroy(gameObject);
+            Debug.Log("melee attack on enemy");
+            health -= GameStatistics.damage;
         }
     }
 }
