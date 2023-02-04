@@ -22,6 +22,10 @@ public class playerMovement : MonoBehaviour
 
     private Animator animator;
 
+
+    [SerializeField] GameObject ToothbrushR;
+    [SerializeField] GameObject ToothBrushL;
+    GameObject currentBrush;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,11 @@ public class playerMovement : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         wait = new WaitForSeconds(disableTime);
         animator = GetComponent<Animator>();
+        ToothbrushR.GetComponent<SpriteRenderer>().enabled = false;
+        ToothbrushR.GetComponent<BoxCollider2D>().enabled = false;
+        ToothBrushL.GetComponent<SpriteRenderer>().enabled = false;
+        ToothBrushL.GetComponent<BoxCollider2D>().enabled = false;
+        currentBrush = ToothbrushR;
     }
 
     // Update is called once per frame
@@ -41,11 +50,13 @@ public class playerMovement : MonoBehaviour
         if (moveD.x < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
+            currentBrush = ToothBrushL;
             animator.SetBool("moving", true);
         }
         else if (moveD.x > 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
+            currentBrush = ToothbrushR;
             animator.SetBool("moving", true);
         }
         else
@@ -96,5 +107,17 @@ public class playerMovement : MonoBehaviour
         {
             Debug.Log("Touched an enemy");
         }
+    }
+    public void OnMelee(InputAction.CallbackContext context)
+    {    
+        StartCoroutine(Attack());
+    }
+    private IEnumerator Attack()
+    {
+        currentBrush.GetComponent<SpriteRenderer>().enabled = true;
+        currentBrush.GetComponent<BoxCollider2D>().enabled = true;
+        yield return new WaitForSeconds(0.5f);
+        currentBrush.GetComponent<SpriteRenderer>().enabled = false;
+        currentBrush.GetComponent<BoxCollider2D>().enabled = false;
     }
 }
