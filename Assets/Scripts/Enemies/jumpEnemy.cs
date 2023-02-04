@@ -71,4 +71,13 @@ public class jumpEnemy : MonoBehaviour
             return (new Vector2(speed * -1f, speed * -1f));
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.layer == LayerMask.NameToLayer("Toothbrush"))
+        {
+            Debug.Log("destroyed");
+            Destroy(gameObject);
+        }
+    }
 }

@@ -33,5 +33,10 @@ public class basicEnemy : MonoBehaviour
         {
             direction = 1;
         }
+        else if (col.gameObject.layer == LayerMask.NameToLayer("Toothbrush"))
+        {
+            Debug.Log("destroyed");
+            Destroy(gameObject);
+        }
     }
 }
