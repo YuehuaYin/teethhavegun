@@ -10823,7 +10823,7 @@ MonoBehaviour:
   bEnemy: {fileID: 8370466304669279995, guid: dffead8fd94c0f044a669fdb7102d809, type: 3}
   tEnemy: {fileID: 2021939094453631100, guid: 711c87d9e3909234eaf4d25264365c48, type: 3}
   jEnemy: {fileID: 9068710234158352967, guid: 5b9a5e494759f0944be11b065957088f, type: 3}
-  delay: 3
+  delay: 4
 --- !u!4 &1851418858
 Transform:
   m_ObjectHideFlags: 0
