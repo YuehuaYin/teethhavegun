@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class basicEnemy : MonoBehaviour
+public class tankEnemy : MonoBehaviour
 {
     Vector2 moveD;
     Rigidbody2D rb;
@@ -14,7 +14,7 @@ public class basicEnemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        health = 100;
+        health = 300;
     }
 
     // Update is called once per frame

@@ -21,6 +21,7 @@ public class playerMovement : MonoBehaviour
     private CapsuleCollider2D capsuleCollider;
 
     private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +56,6 @@ public class playerMovement : MonoBehaviour
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        Debug.Log(context.ReadValue<Vector2>());
         moveD = new Vector2(context.ReadValue<Vector2>().x, 0);
     }
     public void OnJump(InputAction.CallbackContext context)
