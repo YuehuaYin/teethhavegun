@@ -18,8 +18,16 @@ public static class GameStatistics
     public static int MONEY;
 
     public static int item1Level;
-    public static int itemLevel2;
-    public static int itemLevel3;
-    public static int itemLevel4;
-    public static int itemLevel5;
+    public static int item2Level;
+    public static int item3Level;
+    public static int item4Level;
+    public static int item5Level;
+    public static int item6Level;
+
+    public static int item1BaseCost;
+    public static int item2BaseCost;
+    public static int item3BaseCost;
+    public static int item4BaseCost;
+    public static int item5BaseCost;
+    public static int item6BaseCost;
 }
