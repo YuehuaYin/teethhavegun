@@ -9,6 +9,7 @@ public class Droplet : MonoBehaviour
     Rigidbody2D rb;
     public int direction = 1;
     public bool facingR;
+    public int knockback;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,18 +38,25 @@ public class Droplet : MonoBehaviour
         var bEnmy = collision.collider.GetComponent<basicEnemy>();
         var jEnmy = collision.collider.GetComponent<jumpEnemy>();
         var tEnmy = collision.collider.GetComponent<tankEnemy>();
+        var rbCollision = collision.collider.GetComponent<Rigidbody2D>();
         if (bEnmy != null)
         {
             bEnmy.health -= GameStatistics.rangeDamage;
+            bEnmy.StartCoroutine(bEnmy.stun());
         }
         if (jEnmy != null)
         {
             jEnmy.health -= GameStatistics.rangeDamage;
+            
         }
         if (tEnmy != null)
         {
             tEnmy.health -= GameStatistics.rangeDamage;
+            tEnmy.StartCoroutine(tEnmy.stun());
         }
+        var vector = (collision.gameObject.transform.position - transform.position).normalized;
+        var force = vector * knockback;
+        rbCollision.AddForce(force, ForceMode2D.Impulse);
         Destroy(gameObject);
     }
 }

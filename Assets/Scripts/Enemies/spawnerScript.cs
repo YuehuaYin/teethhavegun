@@ -29,6 +29,7 @@ public class spawnerScript : MonoBehaviour
         {
             spawn();
             timer = 0;
+            setDelay();
         }
     }
 
@@ -47,5 +48,11 @@ public class spawnerScript : MonoBehaviour
             Instantiate(jEnemy, transform.position, transform.rotation);
         }
         random = Mathf.RoundToInt(Random.Range(0, 3));
+    }
+
+    public void setDelay()
+    {
+        Debug.Log((float)(GameObject.Find("Canvas").GetComponent<GameUI>().score)/10000);
+        delay = Mathf.Max(1, 3 - (float)(GameObject.Find("Canvas").GetComponent<GameUI>().score) / 10000);
     }
 }
