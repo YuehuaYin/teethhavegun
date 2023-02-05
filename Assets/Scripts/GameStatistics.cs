@@ -15,7 +15,7 @@ public static class GameStatistics
     public static int NextCutscene;
 
 
-    public static int MONEY;
+    public static int MONEY = 6000;
 
     public static int item1Level = 0;
     public static int item2Level = 0;
