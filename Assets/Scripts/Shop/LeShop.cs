@@ -6,6 +6,11 @@ using UnityEngine;
 public class LeShop : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI dentistText;
+    [SerializeField] GameObject ItemButt1;
+    [SerializeField] GameObject ItemButt2;
+    [SerializeField] GameObject ItemButt3;
+    [SerializeField] GameObject ItemButt4;
+    [SerializeField] GameObject ItemButt5;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +26,7 @@ public class LeShop : MonoBehaviour
     public void buyItem(int n)
     {
         bool afford = true;
+        bool downloadAHouse = false;
         switch (n)
         {
             case 1:
@@ -74,19 +80,18 @@ public class LeShop : MonoBehaviour
             case 5:
                 if (GameStatistics.MONEY > GameStatistics.item5BaseCost * Mathf.Pow(2f, GameStatistics.item5Level))
                 {
-                    GameStatistics.MONEY -= Mathf.RoundToInt(GameStatistics.item5BaseCost * Mathf.Pow(2f, GameStatistics.item5Level));
-                    GameStatistics.skin += 1;
-                    GameStatistics.item5Level += 1;
-                }
-                else
-                {
                     afford = false;
+                    downloadAHouse = true;
                 }
                 break;
         }
         if (afford)
         {
             dentistText.text = "Thank you for your purchase!";
+        }
+        else if (downloadAHouse)
+        {
+            dentistText.tag = "I'll need the three funky numbers on the back.";
         }
         else
         {
@@ -96,6 +101,10 @@ public class LeShop : MonoBehaviour
     }
     void updateItems()
     {
-
+        ItemButt1.GetComponentInChildren<TextMeshProUGUI>().text = "E" + GameStatistics.item1BaseCost * Mathf.Pow(2f, GameStatistics.item1Level);
+        ItemButt2.GetComponentInChildren<TextMeshProUGUI>().text = "E" + GameStatistics.item2BaseCost * Mathf.Pow(2f, GameStatistics.item2Level);
+        ItemButt3.GetComponentInChildren<TextMeshProUGUI>().text = "E" + GameStatistics.item3BaseCost * Mathf.Pow(2f, GameStatistics.item3Level);
+        ItemButt4.GetComponentInChildren<TextMeshProUGUI>().text = "E" + GameStatistics.item4BaseCost * Mathf.Pow(2f, GameStatistics.item4Level);
+        ItemButt5.GetComponentInChildren<TextMeshProUGUI>().text = "£7,863,460.99";
     }
 }
