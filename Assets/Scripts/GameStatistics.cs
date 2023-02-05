@@ -14,7 +14,7 @@ public static class GameStatistics
     //check the score at end of main game scene, add at end of cutscene scene, only go to that scene if you have enough score to view one.
     public static int NextCutscene;
 
-    public static int MONEY = 0;
+    public static int MONEY = 30;
 
     public static int item1Level = 0;
     public static int item2Level = 0;

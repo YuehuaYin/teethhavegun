@@ -70,7 +70,7 @@ public class LeShop : MonoBehaviour
         switch (n)
         {
             case 1:
-                if (GameStatistics.MONEY > GameStatistics.item1BaseCost * Mathf.Pow(2f, GameStatistics.item1Level))
+                if (GameStatistics.MONEY >= GameStatistics.item1BaseCost * Mathf.Pow(2f, GameStatistics.item1Level))
                 {
                     GameStatistics.MONEY -= Mathf.RoundToInt(GameStatistics.item1BaseCost * Mathf.Pow(2f, GameStatistics.item1Level));
                     GameStatistics.damage += 30;
@@ -82,7 +82,7 @@ public class LeShop : MonoBehaviour
                 }
                 break;
             case 2:
-                if (GameStatistics.MONEY > GameStatistics.item2BaseCost * Mathf.Pow(2f, GameStatistics.item2Level))
+                if (GameStatistics.MONEY >= GameStatistics.item2BaseCost * Mathf.Pow(2f, GameStatistics.item2Level))
                 {
                     GameStatistics.MONEY -= Mathf.RoundToInt(GameStatistics.item2BaseCost * Mathf.Pow(2f, GameStatistics.item2Level));
                     GameStatistics.rangeDamage += 20;
@@ -94,7 +94,7 @@ public class LeShop : MonoBehaviour
                 }
                 break;
             case 3:
-                if (GameStatistics.MONEY > GameStatistics.item3BaseCost * Mathf.Pow(2f, GameStatistics.item3Level))
+                if (GameStatistics.MONEY >= GameStatistics.item3BaseCost * Mathf.Pow(2f, GameStatistics.item3Level))
                 {
                     GameStatistics.MONEY -= Mathf.RoundToInt(GameStatistics.item3BaseCost * Mathf.Pow(2f, GameStatistics.item3Level));
                     GameStatistics.maxHealth += 1;
@@ -106,7 +106,7 @@ public class LeShop : MonoBehaviour
                 }
                 break;
             case 4:
-                if (GameStatistics.MONEY > GameStatistics.item4BaseCost * Mathf.Pow(2f, GameStatistics.item4Level))
+                if (GameStatistics.MONEY >= GameStatistics.item4BaseCost * Mathf.Pow(2f, GameStatistics.item4Level))
                 {
                     GameStatistics.MONEY -= Mathf.RoundToInt(GameStatistics.item4BaseCost * Mathf.Pow(2f, GameStatistics.item4Level));
                     GameStatistics.speed += 1.5f;
