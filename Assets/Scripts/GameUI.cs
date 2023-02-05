@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameUI : MonoBehaviour
 {
     public int score;
-    public int lives = GameStatistics.maxHealth;
+    public int lives;
     public Text scoreText;
     public Text livesText;
 
@@ -19,6 +19,7 @@ public class GameUI : MonoBehaviour
     [ContextMenu("Initial life")]
     public void startLife()
     {
+        lives = GameStatistics.maxHealth;
         livesText.text = lives.ToString();
     }
 

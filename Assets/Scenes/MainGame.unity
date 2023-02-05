@@ -11492,7 +11492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  lives: 5
+  lives: 0
   scoreText: {fileID: 12434533}
   livesText: {fileID: 2018319289}
 --- !u!1 &1658817857

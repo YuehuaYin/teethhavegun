@@ -8,7 +8,7 @@ public class playerMovement : MonoBehaviour
 {
     Vector2 moveD;
     Rigidbody2D rb;
-    public int speed;
+    public float speed;
     public int jumpSpeed;
 
     [Header("Ground Check Stuff")]
@@ -52,6 +52,8 @@ public class playerMovement : MonoBehaviour
         currentBrush = ToothbrushR;
         currentGun = Gun1;
         GameObject.Find("Canvas").GetComponent<GameUI>().startLife();
+
+        speed = GameStatistics.speed;
     }
 
     private void FixedUpdate()
