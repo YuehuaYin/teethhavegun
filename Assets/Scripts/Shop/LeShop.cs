@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LeShop : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class LeShop : MonoBehaviour
     [SerializeField] GameObject ItemButt3;
     [SerializeField] GameObject ItemButt4;
     [SerializeField] GameObject ItemButt5;
+    [SerializeField] TextMeshProUGUI score;
+    [SerializeField] TextMeshProUGUI money;
+    [SerializeField] TextMeshProUGUI health;
+    [SerializeField] TextMeshProUGUI speed;
+    [SerializeField] TextMeshProUGUI dam;
+    [SerializeField] TextMeshProUGUI rdam;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,11 +85,8 @@ public class LeShop : MonoBehaviour
                 }
                 break;
             case 5:
-                if (GameStatistics.MONEY > GameStatistics.item5BaseCost * Mathf.Pow(2f, GameStatistics.item5Level))
-                {
                     afford = false;
                     downloadAHouse = true;
-                }
                 break;
         }
         if (afford)
@@ -91,7 +95,7 @@ public class LeShop : MonoBehaviour
         }
         else if (downloadAHouse)
         {
-            dentistText.tag = "I'll need the three funky numbers on the back.";
+            dentistText.text = "I'll need the three funky numbers on the back.";
         }
         else
         {
@@ -106,5 +110,20 @@ public class LeShop : MonoBehaviour
         ItemButt3.GetComponentInChildren<TextMeshProUGUI>().text = "E" + GameStatistics.item3BaseCost * Mathf.Pow(2f, GameStatistics.item3Level);
         ItemButt4.GetComponentInChildren<TextMeshProUGUI>().text = "E" + GameStatistics.item4BaseCost * Mathf.Pow(2f, GameStatistics.item4Level);
         ItemButt5.GetComponentInChildren<TextMeshProUGUI>().text = "£7,863,460.99";
+
+        score.text = GameStatistics.maxScore.ToString();
+        money.text = GameStatistics.MONEY.ToString();
+        speed.text = GameStatistics.speed.ToString();
+        dam.text = GameStatistics.damage.ToString();
+        rdam.text = GameStatistics.rangeDamage.ToString();
+        health.text = GameStatistics.maxHealth.ToString();
+    }
+    public void OnExitButt()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void OnContinueButt()
+    {
+        SceneManager.LoadScene("MainGame");
     }
 }
