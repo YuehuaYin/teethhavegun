@@ -9,12 +9,14 @@ public class tankEnemy : MonoBehaviour
     public int speed;
     public int direction;
     public int health;
+    public bool hit = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         health = 200;
+        resetSpeed();
     }
 
     // Update is called once per frame
@@ -26,9 +28,22 @@ public class tankEnemy : MonoBehaviour
             GameObject.Find("Canvas").GetComponent<GameUI>().addScore(GameStatistics.tEnemy);
             Destroy(gameObject);
         }
+        if (!hit)
+        {
+            rb.velocity = new Vector2(speed * direction, rb.velocity.y);
+        }
+    }
+    public IEnumerator stun()
+    {
+        hit = true;
+        yield return new WaitForSeconds(0.2f);
+        hit = false;
+        resetSpeed();
+    }
+    public void resetSpeed()
+    {
         rb.velocity = new Vector2(speed * direction, rb.velocity.y);
     }
-
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name == "RightSideTrigger")
@@ -42,6 +57,10 @@ public class tankEnemy : MonoBehaviour
         else if (col.gameObject.layer == LayerMask.NameToLayer("Toothbrush"))
         {
             Debug.Log("melee attack on enemy");
+            var vector = (transform.position - col.transform.position).normalized;
+            var force = vector * 20;
+            rb.AddForce(force, ForceMode2D.Impulse);
+            StartCoroutine(stun());
             health -= GameStatistics.damage; 
         }
     }

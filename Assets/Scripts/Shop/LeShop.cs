@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LeShop : MonoBehaviour
 {
@@ -18,6 +19,36 @@ public class LeShop : MonoBehaviour
     [SerializeField] TextMeshProUGUI speed;
     [SerializeField] TextMeshProUGUI dam;
     [SerializeField] TextMeshProUGUI rdam;
+
+
+    [SerializeField] Sprite paste1;
+    [SerializeField] Sprite paste2;
+    [SerializeField] Sprite paste3;
+    [SerializeField] Sprite paste4;
+    [SerializeField] Sprite paste5;
+
+    [SerializeField] Sprite mw1;
+    [SerializeField] Sprite mw2;
+    [SerializeField] Sprite mw3;
+    [SerializeField] Sprite mw4;
+    [SerializeField] Sprite mw5;
+
+    [SerializeField] Sprite milk1;
+    [SerializeField] Sprite milk2;
+    [SerializeField] Sprite milk3;
+    [SerializeField] Sprite milk4;
+    [SerializeField] Sprite milk5;
+
+    [SerializeField] Sprite Legs1;
+    [SerializeField] Sprite Legs2;
+    [SerializeField] Sprite legs3;
+    [SerializeField] Sprite legs4;
+    [SerializeField] Sprite legs5;
+
+    [SerializeField] Image Item1;
+    [SerializeField] Image Item2;
+    [SerializeField] Image Item3;
+    [SerializeField] Image Item4;
     // Start is called before the first frame update
     void Start()
     {
@@ -117,6 +148,95 @@ public class LeShop : MonoBehaviour
         dam.text = GameStatistics.damage.ToString();
         rdam.text = GameStatistics.rangeDamage.ToString();
         health.text = GameStatistics.maxHealth.ToString();
+
+        switch (GameStatistics.item1Level)
+        {
+            case 0:
+                Item1.sprite = paste1;
+                break;
+            case 1:
+                Item1.sprite = paste2;
+                break;
+            case 2:
+                Item1.sprite = paste3;
+                break;
+            case 3:
+                Item1.sprite = paste4;
+                break;
+            case 4:
+                Item1.sprite = paste5;
+                break;
+            case 5:
+                Item1.enabled = false;
+                ItemButt1.SetActive(false);
+                break;
+        }
+        switch (GameStatistics.item2Level)
+        {
+            case 0:
+                Item2.sprite = mw1;
+                break;
+            case 1:
+                Item2.sprite =mw2;
+                break;
+            case 2:
+                Item2.sprite = mw3;
+                break;
+            case 3:
+                Item2.sprite = mw4;
+                break;
+            case 4:
+                Item2.sprite = mw5;
+                break;
+            case 5:
+                Item2.enabled = false;
+                ItemButt2.SetActive(false);
+                break;
+        }
+        switch (GameStatistics.item3Level)
+        {
+            case 0:
+                Item3.sprite = milk1;
+                break;
+            case 1:
+                Item3.sprite = milk2;
+                break;
+            case 2:
+                Item3.sprite = milk3;
+                break;
+            case 3:
+                Item3.sprite = milk4;
+                break;
+            case 4:
+                Item3.sprite = milk5;
+                break;
+            case 5:
+                Item3.enabled = false;
+                ItemButt3.SetActive(false);
+                break;
+        }
+        switch (GameStatistics.item4Level)
+        {
+            case 0:
+                Item4.sprite = Legs1;
+                break;
+            case 1:
+                Item4.sprite = Legs2;
+                break;
+            case 2:
+                Item4.sprite = legs3;
+                break;
+            case 3:
+                Item4.sprite = legs4;
+                break;
+            case 4:
+                Item4.sprite = legs5;
+                break;
+            case 5:
+                Item4.enabled = false;
+                ItemButt4.SetActive(false);
+                break;
+        }
     }
     public void OnExitButt()
     {

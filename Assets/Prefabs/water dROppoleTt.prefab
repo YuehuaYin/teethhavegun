@@ -118,6 +118,8 @@ MonoBehaviour:
   skin: 0
   speed: 8
   direction: 1
+  facingR: 0
+  knockback: 4
 --- !u!50 &-5760968631979091749
 Rigidbody2D:
   serializedVersion: 4
