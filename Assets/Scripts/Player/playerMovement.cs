@@ -193,6 +193,8 @@ public class playerMovement : MonoBehaviour
 
     public void death()
     {
+        GameStatistics.MONEY += GameObject.Find("Canvas").GetComponent<GameUI>().score / 100;
+        GameStatistics.maxScore = Mathf.Max(GameStatistics.maxScore, GameObject.Find("Canvas").GetComponent<GameUI>().score);
         GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().color = Color.red;
         SceneManager.LoadScene("shop");
