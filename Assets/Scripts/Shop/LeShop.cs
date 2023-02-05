@@ -49,6 +49,8 @@ public class LeShop : MonoBehaviour
     [SerializeField] Image Item2;
     [SerializeField] Image Item3;
     [SerializeField] Image Item4;
+
+    [SerializeField] AudioSource sfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -122,6 +124,7 @@ public class LeShop : MonoBehaviour
         }
         if (afford)
         {
+            sfx.Play();
             dentistText.text = "Thank you for your purchase!";
         }
         else if (downloadAHouse)
