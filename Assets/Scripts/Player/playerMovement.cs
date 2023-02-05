@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class playerMovement : MonoBehaviour
     GameObject currentBrush;
     GameObject currentGun;
 
+    bool vulnerable = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +47,8 @@ public class playerMovement : MonoBehaviour
         ToothbrushR.GetComponent<BoxCollider2D>().enabled = false;
         ToothBrushL.GetComponent<SpriteRenderer>().enabled = false;
         ToothBrushL.GetComponent<BoxCollider2D>().enabled = false;
+        Gun1.GetComponent<SpriteRenderer>().enabled = false;
+        Gun2.GetComponent<SpriteRenderer>().enabled = false;
         currentBrush = ToothbrushR;
         currentGun = Gun2;
         GameObject.Find("Canvas").GetComponent<GameUI>().startLife();
@@ -120,13 +125,34 @@ public class playerMovement : MonoBehaviour
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Debug.Log("Touched an enemy");
-            GameObject.Find("Canvas").GetComponent<GameUI>().loseLife();
-
-            if (GameObject.Find("Canvas").GetComponent<GameUI>().lives == 0)
+            if (vulnerable)
             {
-                death();
+                StartCoroutine(Invincibility());
+                GameObject.Find("Canvas").GetComponent<GameUI>().loseLife();
+
+                if (GameObject.Find("Canvas").GetComponent<GameUI>().lives == 0)
+                {
+                    death();
+                }
             }
         }
+    }
+    IEnumerator Invincibility()
+    {
+        vulnerable = false;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().enabled = true;
+        vulnerable = true;
     }
     public void OnMelee(InputAction.CallbackContext context)
     {
@@ -167,6 +193,8 @@ public class playerMovement : MonoBehaviour
 
     public void death()
     {
-        Debug.Log("dead :(");
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().color = Color.red;
+        SceneManager.LoadScene("shop");
     }
 }
