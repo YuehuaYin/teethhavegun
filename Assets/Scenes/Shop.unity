@@ -1758,6 +1758,30 @@ MonoBehaviour:
   speed: {fileID: 53455652}
   dam: {fileID: 929420827}
   rdam: {fileID: 279201917}
+  paste1: {fileID: 0}
+  paste2: {fileID: 0}
+  paste3: {fileID: 0}
+  paste4: {fileID: 0}
+  paste5: {fileID: 0}
+  mw1: {fileID: 0}
+  mw2: {fileID: 0}
+  mw3: {fileID: 0}
+  mw4: {fileID: 0}
+  mw5: {fileID: 0}
+  milk1: {fileID: 0}
+  milk2: {fileID: 0}
+  milk3: {fileID: 0}
+  milk4: {fileID: 0}
+  milk5: {fileID: 0}
+  Legs1: {fileID: 0}
+  Legs2: {fileID: 0}
+  legs3: {fileID: 0}
+  legs4: {fileID: 0}
+  legs5: {fileID: 0}
+  Item1: {fileID: 902912088}
+  Item2: {fileID: 1737027457}
+  Item3: {fileID: 652357596}
+  Item4: {fileID: 789938569}
 --- !u!4 &999105585
 Transform:
   m_ObjectHideFlags: 0
@@ -3630,10 +3654,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 0
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 0
   m_fontSizeMax: 0
   m_fontStyle: 0
@@ -4666,10 +4690,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 0
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 0
   m_fontSizeMax: 0
   m_fontStyle: 0
