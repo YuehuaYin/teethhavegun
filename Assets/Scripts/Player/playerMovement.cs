@@ -32,6 +32,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] GameObject DropPrefab;
     GameObject currentBrush;
     GameObject currentGun;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,13 +46,9 @@ public class playerMovement : MonoBehaviour
         ToothBrushL.GetComponent<BoxCollider2D>().enabled = false;
         currentBrush = ToothbrushR;
         currentGun = Gun2;
+        GameObject.Find("Canvas").GetComponent<GameUI>().startLife();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void FixedUpdate()
     {
         if (moveD.x < 0)
@@ -82,6 +79,7 @@ public class playerMovement : MonoBehaviour
         }
         rb.velocity = new Vector2(speed * moveD.x, rb.velocity.y);
     }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveD = new Vector2(context.ReadValue<Vector2>().x, 0);
@@ -94,7 +92,6 @@ public class playerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             StartCoroutine(EnableCheckAfterJump());
         }
-        
     }
 
     private bool IsGrounded()
@@ -123,6 +120,12 @@ public class playerMovement : MonoBehaviour
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Debug.Log("Touched an enemy");
+            GameObject.Find("Canvas").GetComponent<GameUI>().loseLife();
+
+            if (GameObject.Find("Canvas").GetComponent<GameUI>().lives == 0)
+            {
+                death();
+            }
         }
     }
     public void OnMelee(InputAction.CallbackContext context)
@@ -160,5 +163,10 @@ public class playerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         currentGun.GetComponent<SpriteRenderer>().enabled = false;
         atkRdy = true;
+    }
+
+    public void death()
+    {
+        Debug.Log("dead :(");
     }
 }

@@ -6,7 +6,7 @@ public static class GameStatistics
 {
     public static int damage = 50;
     public static int rangeDamage = 35;
-    public static int maxHealth = 3;
+    public static int maxHealth = 5;
     public static float speed = 5f;
     public static int skin = 1;
 
@@ -31,4 +31,8 @@ public static class GameStatistics
     public static int item5BaseCost = 10000;
     public static int item5Cost2 = 250000;
     public static int item5cost3 = 5000000;
+
+    public static int jEnemy = 100;
+    public static int bEnemy = 200;
+    public static int tEnemy = 300;
 }

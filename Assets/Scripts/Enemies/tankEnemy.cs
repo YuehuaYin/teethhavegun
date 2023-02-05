@@ -14,7 +14,7 @@ public class tankEnemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        health = 300;
+        health = 200;
     }
 
     // Update is called once per frame
@@ -23,6 +23,7 @@ public class tankEnemy : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("destroyed");
+            GameObject.Find("Canvas").GetComponent<GameUI>().addScore(GameStatistics.tEnemy);
             Destroy(gameObject);
         }
         rb.velocity = new Vector2(speed * direction, rb.velocity.y);

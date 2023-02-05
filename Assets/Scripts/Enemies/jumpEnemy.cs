@@ -24,6 +24,7 @@ public class jumpEnemy : MonoBehaviour
     {
         if (health <= 0) {
             Debug.Log("destroyed");
+            GameObject.Find("Canvas").GetComponent<GameUI>().addScore(GameStatistics.jEnemy);
             Destroy(gameObject);
         }
         if (colliding == true) {

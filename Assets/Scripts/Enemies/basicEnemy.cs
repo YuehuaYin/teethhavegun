@@ -23,6 +23,7 @@ public class basicEnemy : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("destroyed");
+            GameObject.Find("Canvas").GetComponent<GameUI>().addScore(GameStatistics.bEnemy);
             Destroy(gameObject);
         }
         rb.velocity = new Vector2(speed * direction, rb.velocity.y);
