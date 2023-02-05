@@ -50,7 +50,7 @@ public class playerMovement : MonoBehaviour
         Gun1.GetComponent<SpriteRenderer>().enabled = false;
         Gun2.GetComponent<SpriteRenderer>().enabled = false;
         currentBrush = ToothbrushR;
-        currentGun = Gun2;
+        currentGun = Gun1;
         GameObject.Find("Canvas").GetComponent<GameUI>().startLife();
     }
 
