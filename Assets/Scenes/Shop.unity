@@ -1758,26 +1758,26 @@ MonoBehaviour:
   speed: {fileID: 53455652}
   dam: {fileID: 929420827}
   rdam: {fileID: 279201917}
-  paste1: {fileID: 0}
-  paste2: {fileID: 0}
-  paste3: {fileID: 0}
-  paste4: {fileID: 0}
-  paste5: {fileID: 0}
-  mw1: {fileID: 0}
-  mw2: {fileID: 0}
-  mw3: {fileID: 0}
-  mw4: {fileID: 0}
-  mw5: {fileID: 0}
-  milk1: {fileID: 0}
-  milk2: {fileID: 0}
-  milk3: {fileID: 0}
-  milk4: {fileID: 0}
-  milk5: {fileID: 0}
-  Legs1: {fileID: 0}
-  Legs2: {fileID: 0}
-  legs3: {fileID: 0}
-  legs4: {fileID: 0}
-  legs5: {fileID: 0}
+  paste1: {fileID: 21300000, guid: 63ee5f566fe07444a8ac527be2cc1960, type: 3}
+  paste2: {fileID: 21300000, guid: dee0c992b9caa5a4796fd8da0747a568, type: 3}
+  paste3: {fileID: 21300000, guid: 446c07ac01d791743bda17ad328ddeea, type: 3}
+  paste4: {fileID: 21300000, guid: 148d1978635d7114b89a6139a5a7ddd9, type: 3}
+  paste5: {fileID: 21300000, guid: 4a08f4d3fedef8046a175e7a00dbfcf7, type: 3}
+  mw1: {fileID: 21300000, guid: 443a6d8b9e4007a43b3b9d872755ad8f, type: 3}
+  mw2: {fileID: 21300000, guid: 2e92ef01fc6b8e040ad6dfbc11c1dfc4, type: 3}
+  mw3: {fileID: 21300000, guid: d003154d68fc61c4ba4ed6d8b01bae4e, type: 3}
+  mw4: {fileID: 21300000, guid: 805943a4e1c882a48a9eb098ea9f9bea, type: 3}
+  mw5: {fileID: 21300000, guid: a40e8aef404c1f9449196c24e51f3cdd, type: 3}
+  milk1: {fileID: 21300000, guid: 3a2b211814ae0884ab43aefa076d0001, type: 3}
+  milk2: {fileID: 21300000, guid: 7f2a4cced2899e04ca8bc99c8c5386d1, type: 3}
+  milk3: {fileID: 21300000, guid: aa541aeed4d108c4f8280782a3b3dd3e, type: 3}
+  milk4: {fileID: 21300000, guid: ac85ce1009abf5d4db35b432e0283e5f, type: 3}
+  milk5: {fileID: 21300000, guid: 9a14e7b72ddb5c945b575e436f72412d, type: 3}
+  Legs1: {fileID: 21300000, guid: 8d833c44eb487274e8b91a7aa5351135, type: 3}
+  Legs2: {fileID: 21300000, guid: 253656dc3e5670449b23c65caf0c5f63, type: 3}
+  legs3: {fileID: 21300000, guid: af23a98dbfb2ba847a959411a13e689e, type: 3}
+  legs4: {fileID: 21300000, guid: 89996d0bc9d5fd847be212828668b9e3, type: 3}
+  legs5: {fileID: 21300000, guid: 75c091937a8879143aa237aa7e6565d7, type: 3}
   Item1: {fileID: 902912088}
   Item2: {fileID: 1737027457}
   Item3: {fileID: 652357596}
@@ -3636,8 +3636,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4281019179
+  m_fontColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3654,13 +3654,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0
-  m_fontSizeBase: 24
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 0
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4672,8 +4672,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4280953386
+  m_fontColor: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4690,13 +4690,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0
-  m_fontSizeBase: 24
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 0
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
